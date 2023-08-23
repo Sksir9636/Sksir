@@ -1,65 +1,78 @@
-
-
-    "name": "MG",
-
-    "description": "A Modular telegram bot.",
-
-    "repository": "https://github.com/creator-boy/PyroNoobCodeX.git",
-    "buildpacks":[
-        {
-            "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git"
-        },
-        {
-            "url": "https://github.com/amivin/aria2-heroku.git"
-        },
-        {
-            "url": "heroku/python"
-        }
-    ],
-    "keywords": [
-
-       
-
-        "telegram bot",
-
-        "pyrogram"
-
-    ],
-
-    "env": {
-
-        "BOT_TOKEN": {
-
-            "description": "Your Bot token from @Botfather"
-
-        },
-
-        "API_ID": {
-
-            "description": "Your API_ID from https://my.telegram.org/apps"
-
-        },
-
-        "API_HASH": {
-
-            "description": "Your API_HASH from https://my.telegram.org/apps"
-
-        }
-
+{
+  "name": "SHIVA",
+  "description": "One of the best Userbot for Telegram. Known for its Smoothness, Design, Support.",
+  "logo": "https://telegra.ph/file/fbba6e5a225d6c2a06249.jpg",
+  "keywords": [
+    "telegram",
+    "userbot",
+    "plugin",
+    "telethon",
+    "hellbot",
+    "modular",
+    "productivity"
+  ],
+  "repository": "https://github.com/Sksir9636/Sksir.git",
+  "env": {
+    "ENV": {
+      "description": "Setting this to ANYTHING will enable heroku.",
+      "value": "ANYTHING"
     },
+    "HANDLER": {
+      "description": "Your command handler. Default is ' . ' (dot).",
+      "value": "."
+    },
+    "APP_ID": {
+      "description": "Get this value from my.telegram.org",
+      "value": ""
+    },
+    "API_HASH": {
+      "description": "Get this value from my.telegram.org",
+      "value": ""
+    },
+    "HELLBOT_SESSION": {
+      "description": "Get HellBot Session From here:- ( https://t.me/LegendSessionBot ) . Read Repo for more info.",
+      "value": ""
+    },
+    "BOT_TOKEN": {
+      "description": "Make a bot from @BotFather and paste the bot token here.",
+      "value": ""
+    },
+    "HEROKU_API_KEY": {
+      "description": "Go to https://dashboard.heroku.com/account, scroll down and press Reveal API. Required for updater to work.",
+      "value": "",
+      "required": false
+    },
+    "HEROKU_APP_NAME": {
+      "description": "ʟᴇᴀᴠᴇ ᴛʜɪs ғɪᴇʟᴅ ʙʟᴀɴᴋ ғᴏʀ ʏᴏᴜʀ sᴀғᴇᴛʏ",
+      "value": "",
+      "required": false
+    },    
+    "ABUSE": {
+      "description": "Leave it blank if you dont want Profanity in HellBot. Else Fill ON.",
+      "value": "ON",
+      "required": false
+    }
+  },
+  "addons": [{
+    "plan": "heroku-postgresql",
+    "options": {
+      "version": "12"
+    }
+  }],
+  "buildpacks": [{
+    "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest"
+  },{
+    "url":"https://github.com/heroku/heroku-buildpack-google-chrome"
+  },{
+    "url":"https://github.com/heroku/heroku-buildpack-chromedriver"
+  },{
+    "url": "https://github.com/heroku/heroku-buildpack-apt.git"
+  },{
+    "url": "https://github.com/chrismytton/heroku-buildpack-jq"
+  },{
+    "url": "heroku/python"
+  }]
 
-    "buildpacks": [
 
-        {
 
-            "url": "heroku/python"
-
-        },
-        {
-            "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git"
-        },
-        {
-            "url": "https://github.com/amivin/aria2-heroku.git"
-        }
-
-    ]
+  }
