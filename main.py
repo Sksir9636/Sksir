@@ -36,14 +36,14 @@ bot = Client(
 
 @bot.on_message(filters.command(["start"])& ~filters.edited)
 async def account_login(bot: Client, m: Message):
-    editable = await m.reply_text("Hello im txt file downloader\nPress /pyro to download links listed in a txt file in the format **Name:link**\n\nBot made by SHIVA")
+    editable = await m.reply_text("Hello im txt file downloader\nPress /pyro to download links listed in a txt file in the format **Name:link**\n\nBot made by BATMAN")
 
 @bot.on_message(filters.command(["cancel"]))
 async def cancel(_, m):
     editable = await m.reply_text("Canceling All process Plz wait")
     global cancel
     cancel = True
-    await editable.edit("canceled")
+    await editable.edit("cancled")
     return
 @bot.on_message(filters.command("restart"))
 async def restart_handler(_, m):
@@ -52,7 +52,7 @@ async def restart_handler(_, m):
 
 @bot.on_message(filters.command(["pyro"])& ~filters.edited)
 async def account_login(bot: Client, m: Message):
-    editable = await m.reply_text("Send txt file")
+    editable = await m.reply_text("Send txt file**")
     input: Message = await bot.listen(editable.chat.id)
     x = await input.download()
     await input.delete(True)
@@ -101,7 +101,7 @@ async def account_login(bot: Client, m: Message):
         getstatusoutput(f"wget '{thumb}' -O 'thumb.jpg'")
         thumb = "thumb.jpg"
     else:
-        `thumb = "no"`
+        thumb == "no"
         
     if raw_text =='0':
         count =1
@@ -120,10 +120,15 @@ async def account_login(bot: Client, m: Message):
             if raw_text2 =="144":
 
                 cmd = f'yt-dlp -F "{url}"'
-k = await helper.run(cmd)
-out = helper.vid_info(str(k))
-# print(out)
-ytf = out.get('256x144', out.get('320x180', out.get('unknown', 'no')))
+                k = await helper.run(cmd)
+                out = helper.vid_info(str(k))
+                # print(out)
+                if '256x144' in out:
+                    ytf = f"{out['256x144']}"
+                elif '320x180' in out:
+                    ytf = out['320x180']    
+                elif 'unknown' in out:
+                    ytf = out["unknown"]
                 else:
                     ytf = "no"
 
@@ -326,47 +331,26 @@ ytf = out.get('256x144', out.get('320x180', out.get('unknown', 'no')))
                         time.sleep(1)
                         start_time = time.time()
                         await m.reply_document(ka, caption=f'**Title »** {name1} {res}.pdf\n**Caption »** {raw_text0}\n**Index »** {str(count).zfill(3)}')
-                        count += 1
-await reply.delete(True)
-time.sleep(1)
-os.remove(ka)
-time.sleep(3)
-except FloodWait as e:
-    await m.reply_text(str(e))
-    time.sleep(e.x)
-    continue
-elif cmd == "pdf" or ".pdf" in url:
-    try:
-        ka = await helper.aio(url, name)
-        await prog.delete(True)
-        time.sleep(1)
-        reply = await m.reply_text(f"Uploading - {name}")
-        time.sleep(1)
-        start_time = time.time()
-        await m.reply_document(ka, caption=f'Title » {name1} {res}.pdf\nCaption » {raw_text0}\nIndex » {str(count).zfill(3)}')
-        count += 1
-        await reply.delete(True)
-        time.sleep(1)
-        os.remove(ka)
-        time.sleep(3)
-    except FloodWait as e:
-        await m.reply_text(str(e))
-        time.sleep(e.x)
-        continue
-else:
-    res_file = await helper.download_video(url, cmd, name)
-    filename = res_file
-    await helper.send_vid(bot, m, cc, filename, thumb, name, prog)
-    count += 1
-    time.sleep(1)
-except Exception as e:
-    await m.reply_text(f"downloading failed ❌\n{str(e)}\nName - {name}\nLink - {url}")
-    continue
+                        count+=1
+                        # time.sleep(1)
+                        await reply.delete (True)
+                        time.sleep(1)
+                        os.remove(ka)
+                        time.sleep(3)
+                    except FloodWait as e:
+                        await m.reply_text(str(e))
+                        time.sleep(e.x)
+                        continue
+                else:
+                    res_file = await helper.download_video(url,cmd, name)
+                    filename = res_file
+                    await helper.send_vid(bot, m,cc,filename,thumb,name,prog)
+                    count+=1
+                    time.sleep(1)
 
-
-except Exception as e:
-    await m.reply_text(e)
-await m.reply_text("Done")
+            except Exception as e:
+                await m.reply_text(f"**downloading failed ❌**\n{str(e)}\n**Name** - {name}\n**Link** - `{url}`")
+                continue
 
 
     except Exception as e:
@@ -523,10 +507,11 @@ async def account_login(bot: Client, m: Message):
                 os.remove(f"{filename}.jpg")
                 await reply.delete (True)
                 time.sleep(1)
-except Exception as e:
-    await m.reply_text(f"downloading failed ❌\n{str(e)}\nName - {name}\nLink - {url} & {url1}")
-    continue 
-except Exception as e:
-    await m.reply_text(str(e))
-await m.reply_text("Done")     
+            except Exception as e:
+                await m.reply_text(f"**downloading failed ❌**\n{str(e)}\n**Name** - {name}\n**Link** - `{url}` & `{url1}`")
+                continue 
+    except Exception as e:
+        await m.reply_text(e)
+    await m.reply_text("Done")     
+    
 bot.run()
