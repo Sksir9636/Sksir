@@ -2,7 +2,7 @@ import pyrogram
 import requests
 
 # Create a Pyrogram Client
-app = pyrogram.Client("txt_downloader_bot")
+app = pyrogram.Client("22912393")
 
 # Handler for the /start command
 @app.on_message(pyrogram.filters.command("start"))
