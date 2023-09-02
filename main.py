@@ -1,7 +1,9 @@
 import requests
 import json
 import subprocess
-from pyrogram import Client,filters
+from pyrogram import filters
+@Client.on_message(filters.edited)
+def on_edited(client, message):
 from pyrogram.types.messages_and_media import message
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from pyrogram.errors import FloodWait
