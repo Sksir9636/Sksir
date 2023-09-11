@@ -5,6 +5,13 @@ from pyrogram import filters
 @Client.on_message(filters.edited)
 def on_edited(client, message):
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
+def create_inline_keyboard():
+    button1 = InlineKeyboardButton(text="Button 1", callback_data="button1")
+    button2 = InlineKeyboardButton(text="Button 2", callback_data="button2")
+    button3 = InlineKeyboardButton(text="Button 3", callback_data="button3")
+    keyboard = [[button1, button2], [button3]]
+    reply_markup = InlineKeyboardMarkup(keyboard)
+    return reply_markup
 from pyrogram.errors import FloodWait
 from pyromod import listen
 from pyrogram.types import Message
