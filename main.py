@@ -1,17 +1,9 @@
 import requests
 import json
 import subprocess
-from pyrogram import filters
-@Client.on_message(filters.edited)
-def on_edited(client, message):
+from pyrogram import Client,filters
+from pyrogram.types.messages_and_media import message
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
-def create_inline_keyboard():
-    button1 = InlineKeyboardButton(text="Button 1", callback_data="button1")
-    button2 = InlineKeyboardButton(text="Button 2", callback_data="button2")
-    button3 = InlineKeyboardButton(text="Button 3", callback_data="button3")
-    keyboard = [[button1, button2], [button3]]
-    reply_markup = InlineKeyboardMarkup(keyboard)
-    return reply_markup
 from pyrogram.errors import FloodWait
 from pyromod import listen
 from pyrogram.types import Message
@@ -44,7 +36,7 @@ bot = Client(
 
 @bot.on_message(filters.command(["start"])& ~filters.edited)
 async def account_login(bot: Client, m: Message):
-    editable = await m.reply_text("Hello im txt file downloader\nPress /pyro to download links listed in a txt file in the format **Name:link**\n\nBot made by SHIVA")
+    editable = await m.reply_text("Hello im txt file downloader\nPress /pyro to download links listed in a txt file in the format **Name:link**\n\nBot made by BATMAN")
 
 @bot.on_message(filters.command(["cancel"]))
 async def cancel(_, m):
@@ -523,4 +515,3 @@ async def account_login(bot: Client, m: Message):
     await m.reply_text("Done")     
     
 bot.run()
-    
