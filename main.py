@@ -2,15 +2,22 @@ import requests
 import json
 import subprocess
 from pyrogram import Client,filters
-from pyrogram.types.messages_and_media import message
+from pyrogram import idle
+from telegram import InlineKeyboardMarkup
+from telegram.ext import CommandHandler
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from pyrogram.errors import FloodWait
 from pyromod import listen
 from pyrogram.types import Message
 import pyrogram
 from pyrogram import Client, filters
-import tgcrypto
-from p_bar import progress_bar
+
+from tqdm import tqdm
+import time
+
+for i in tqdm(range(100)):
+    time.sleep(0.1) # simulate some work
+    
 # from details import api_id, api_hash, bot_token
 from subprocess import getstatusoutput
 import helper
@@ -515,3 +522,4 @@ async def account_login(bot: Client, m: Message):
     await m.reply_text("Done")     
     
 bot.run()
+    
