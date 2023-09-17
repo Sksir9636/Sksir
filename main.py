@@ -112,9 +112,8 @@ else:
 if raw_text =='0':
     count =1
 else:       
-    count =int(raw_text)    
-
-try:
+    count =int(raw_text)   
+    try:
     for i in range(arg, len(links)):
 
         url = links[i][1]
@@ -122,16 +121,17 @@ try:
 
         
         if raw_text2 == "144":
-    cmd = f'yt-dlp -F "{url}"'
-    k = await helper.run(cmd)
-    out = helper.vid_info(str(k))
-    # print(out)
-    if '256x144' in out:
-        ytf = f"{out['256x144']}"
-    elif '320x180' in out:
-        ytf = out['320x180']    
-    elif 'unknown' in out:
-        ytf = out["unknown"]
+            cmd = f'yt-dlp -F "{url}"'
+            k = await helper.run(cmd)
+            out = helper.vid_info(str(k))
+            # print(out)
+            if '256x144' in out:
+                ytf = f"{out['256x144']}"
+            elif '320x180' in out:
+                ytf = out['320x180']    
+            elif 'unknown' in out:
+                ytf = out["unknown"]
+                
     else:
         ytf = "no"
 
