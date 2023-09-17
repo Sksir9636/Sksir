@@ -18,7 +18,7 @@ import pyrogram
 from pyrogram import Client, filters
 import tgcrypto
 from p_bar import progress_bar
-# from details import api_id, api_hash, bot_token
+# from details import api_id, #api_hash, bot_token
 from subprocess import getstatusoutput
 import helper
 import logging
@@ -42,7 +42,7 @@ bot = Client(
 )
 @bot.on_message(filters.command("start") & filters.private)
 async def start_handler(client, message):
-    await message.reply_text("Hᴇʟʟᴏ ɪᴍ ᴛxᴛ Fɪʟᴇ Dᴏᴡɴʟᴏᴀᴅᴇʀ\nPʀᴇss/pyro ᴛᴏ Dᴏᴡɴʟᴏᴀᴅ Lɪɴᴋs Lɪsᴛᴇᴅ Iɴ ᴀ ᴛxᴛ Fɪʟᴇ Iɴ Tʜᴇ Fᴏʀᴍᴀᴛ Nᴀᴍᴇ » Lɪɴᴋs\n\nBot made by SHIVA")
+    await message.reply_text("Hᴇʟʟᴏ ɪᴍ ᴛxᴛ Fɪʟᴇ Dᴏᴡɴʟᴏᴀᴅᴇʀ\nPʀᴇss /pyro ᴛᴏ Dᴏᴡɴʟᴏᴀᴅ Lɪɴᴋs Lɪsᴛᴇᴅ Iɴ ᴀ ᴛxᴛ Fɪʟᴇ Iɴ Tʜᴇ Fᴏʀᴍᴀᴛ Nᴀᴍᴇ » Lɪɴᴋs\n\n[⚡️Pᴏᴡᴇʀᴇᴅ Bʏ Sʜɪᴠᴀ]")
 
 #Mᴀᴅᴇ Bʏ Sʜɪᴠᴀ 
 
@@ -296,9 +296,9 @@ else:
     cmd = f'yt-dlp -f "{ytf}+bestaudio" --hls-prefer-ffmpeg --no-keep-video --remux-video mkv "{url}" -o "{name}.%(ext)s"'
 
 try:
-    Show = f"Dᴏᴡɴʟᴏᴀᴅɪɴɢ  »\n\nNᴀᴍᴇ »** {name}\nQᴜᴀʟɪᴛʏ » {raw_text2}\n\nUrl  »{url}\n\n"
+    Show = f"[⚡️Pᴏᴡᴇʀᴇᴅ Bʏ Sʜɪᴠᴀ]\n\nDᴏᴡɴʟᴏᴀᴅɪɴɢ » \n\nNᴀᴍᴇ » {name}_Shiva.mkv\n\nQᴜᴀʟɪᴛʏ » {raw_text2}\n\nUʀʟ » {url}"
     prog = await message.reply_text(Show)
-    cc = f'{str(count).zfill(2)}.{name}({raw_text2})sʜɪᴠᴀ.mkv\n\nBᴀᴛᴄʜ » {raw_text0}\n\nDᴏᴡɴʟᴏᴀᴅᴇᴅ Bʏ » Sʜɪᴠᴀ'
+    cc = f'{str(count).zfill(2)}.{name}({raw_text2})_Shiva.mkv\n\nBᴀᴛᴄʜ » {raw_text0}\n\nDᴏᴡɴʟᴏᴀᴅᴇᴅ Bʏ » Sʜɪᴠᴀ'
     cc1 =f'{str(count).zfill(2)}.{name1}({raw_text2})sʜɪᴠᴀ.mkv\n\nBᴀᴛᴄʜ » {raw_text0}\n\nDᴏᴡɴʟᴏᴀᴅᴇᴅ Bʏ » Sʜɪᴠᴀ'
 
     if cmd == "pdf" or "drive" in url:
@@ -470,7 +470,7 @@ try:
         filename = f"{name}.mkv"
     elif os.path.isfile(f"{name}.mp4"):
         filename = f"{name}.mp4"
-        elif os.path.isfile(f"{name}.pdf"):
+    elif os.path.isfile(f"{name}.pdf"):
     filename = f"{name}.pdf"  
 #   filename = f"{name}.mkv"
     subprocess.run(f'ffmpeg -i "{filename}" -ss 00:01:00 -vframes 1 "{filename}.jpg"', shell=True)
@@ -504,3 +504,4 @@ except Exception as e:
     await message.reply_text(e)
 await message.reply_text("Done")     
 bot.run()
+                
