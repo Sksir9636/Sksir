@@ -76,7 +76,14 @@ async def account_login(bot: Client, m: Message):
         for i in content:
             links.append(i.split(":", 1))
         os.remove(x)
-        # print(len(links))
+     try:
+        with open(x, "r") as f:
+            content = f.read()
+        content = content.split("\n")
+        links = []
+        for i in content:
+            links.append(i.split(":", 1))
+        os.remove(x)
     except:
         await message.reply_text("Iɴᴠᴀʟɪᴅ Fɪʟᴇ Iɴᴘᴜᴛ.")
         os.remove(x)
@@ -114,7 +121,7 @@ if raw_text =='0':
 else:       
     count =int(raw_text)   
     try:
-    for i in range(arg, len(links)):
+    fo:
 
         url = links[i][1]
         name1 = links[i][0].replace("\t", "").replace(":", "").replace("/", "").replace("+", "").replace("#", "").replace("|", "").replace("@","").replace("*","").replace(".","").strip()
