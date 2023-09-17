@@ -119,8 +119,9 @@ try:
 
         url = links[i][1]
         name1 = links[i][0].replace("\t", "").replace(":", "").replace("/", "").replace("+", "").replace("#", "").replace("|", "").replace("@","").replace("*","").replace(".","").strip()
-        if raw_text2 == "144":
 
+        
+        if raw_text2 == "144":
     cmd = f'yt-dlp -F "{url}"'
     k = await helper.run(cmd)
     out = helper.vid_info(str(k))
